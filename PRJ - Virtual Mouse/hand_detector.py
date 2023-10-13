@@ -62,18 +62,19 @@ class HandDetector:
         return self.landmarklist, bbox
     
     def GetFingersUp(self):
-        fingers = []
+        knuckle_ids = [2, 5, 9, 13, 17]
 
-        if self.landmarklist[self.TIP_IDS[0]][1] < self.landmarklist[self.TIP_IDS[0] - 1][1]:
-            fingers.append(1)
-        else:
-            fingers.append(0)
+        # Initialize finger count
+        finger_count = 0
 
-        for id in range(1, 5):
-            if self.landmarklist[self.TIP_IDS[id]][2] < self.landmarklist[self.TIP_IDS[id] - 2][2]:
-                fingers.append(1)
-            else:
-                fingers.append(0)
+        # Check each finger for being extended (upwards)
+        for fingertip_id, knuckle_id in zip(self.TIP_IDS, knuckle_ids):
+            fingertip_y = self.landmarklist[fingertip_id].y
+            knuckle_y = self.landmarklist[knuckle_id].y
 
-        return fingers
+            # If the fingertip is higher (y-coordinate) than the knuckle, consider it extended
+            if fingertip_y < knuckle_y:
+                finger_count += 1
+
+        return finger_count
 
