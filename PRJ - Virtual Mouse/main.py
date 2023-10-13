@@ -11,9 +11,6 @@ SECONDARY_CAMERA = 1
 # max n of hands allowed for use
 HANDS_LIMIT = 1
 
-# hand landmark positions
-INDEX_FINGER_TOP = 8
-
 def main():
     video_cap = cv2.VideoCapture(DEFAULT_CAMERA)
     hand_detector = HandDetector(max_hands=HANDS_LIMIT)
