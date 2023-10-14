@@ -98,7 +98,7 @@ class HandDetector:
                 cv2.circle(image, (cx, cy), radius=rad, color=(0, 0, 255))
 
                 # visualize length
-                cv2.line(image, (x1, y1), (x2, y2), (255, 0, 355), thickness=thickness, lineType=cv2.LINE_AA)
+                cv2.line(image, (x1, y1), (x2, y2), (255, 0, 255), thickness=thickness, lineType=cv2.LINE_AA)
 
             # return length
             length = np.hypot(x2 - x1, y2 - y1)
