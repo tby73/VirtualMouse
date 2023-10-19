@@ -25,7 +25,7 @@ def main():
         landmarkpositions, bbox = hand_detector.GetLandmarkPositions(frame, draw=True)
         
         fingers_up = hand_detector.GetFingersUp(frame)
-        click_length, [x1, y1, x2, y2, cx, cy] = hand_detector.ClickDistance(frame, 8, 12, 15, 3, draw=True)
+        click_length, [x1, y1, x2, y2, cx, cy] = hand_detector.ClickDistance(frame, 4, 8, 15, 3, draw=True)
 
         cv2.imshow("Virtual Mouse v1.0", frame)
 
