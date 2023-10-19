@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 import numpy as np
-#import pyautogui as pg
+import pyautogui as pg
 
 from hand_detector import HandDetector
 
@@ -13,7 +13,7 @@ SECONDARY_CAMERA = 1
 HANDS_LIMIT = 1
 
 # get screen size
-#screen_width, screen_height = pg.size()
+screen_width, screen_height = pg.size()
 
 def main():
     video_cap = cv2.VideoCapture(DEFAULT_CAMERA)
