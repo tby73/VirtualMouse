@@ -62,7 +62,7 @@ class HandDetector:
         return self.landmarklist, bbox
     
     def GetFingersUp(self, image):
-        knuckle_ids = [2, 5, 9, 13, 17]
+        knuckle_ids = [3, 6, 10, 14, 18]
 
         # Initialize finger count
         finger_count = 0
@@ -107,5 +107,4 @@ class HandDetector:
             cv2.putText(image, f"CLICK LENGTH: {np.round(length, 2)}", (70, 70), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(0, 255, 0))
 
         return length, [x1, y1, x2, y2, cx, cy]
-
 
