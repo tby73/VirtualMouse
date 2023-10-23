@@ -13,6 +13,10 @@ SECONDARY_CAMERA = 1
 # max n of hands allowed for use
 HANDS_LIMIT = 1
 
+# thumb and index tip
+THUMB_TIP_ID = 4
+INDEX_TIP_ID = 8
+
 # get screen size
 screen_info = screeninfo.get_monitors()[0]  # Get the primary monitor information
 screen_width = screen_info.width
@@ -28,7 +32,7 @@ def main():
         landmarkpositions, bbox = hand_detector.GetLandmarkPositions(frame, draw=True)
         
         fingers_up = hand_detector.GetFingersUp(frame)
-        click_length, [x1, y1, x2, y2, cx, cy] = hand_detector.ClickDistance(frame, 4, 8, 15, 3, draw=True)
+        click_length, [x1, y1, x2, y2, cx, cy] = hand_detector.ClickDistance(frame, THUMB_TIP_ID, INDEX_TIP_ID, 15, 3, draw=True)
         
         # detect if hand is in canvas and perform click if finger index 4 and 8 are close
 
